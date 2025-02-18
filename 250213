@@ -1,0 +1,41 @@
+## 📂 Swagger
+
+- `RESTful API` 자동으로 생성하고 문서화해주는 도구
+- 프로젝트
+    - **프로젝트 설명**
+        - 사용자가 챗봇과 대화하면, **데이터베이스에 저장된 프롬프트를 기반으로 챗봇이 응답하는 서비스**
+    - **핵심 기능**
+        - 카드 UI에서 챗봇과 대화 가능
+        - **DB에 저장된 프롬프트를 활용하여 챗봇이 답변 생성**
+        - 생성된 프롬프트를 저장하고 관리할 수 있음
+        - 사용자는 프롬프트를 복사하여 활용 가능
+- 설계 목표
+    
+    <aside>
+    ➕
+    
+    - API의 요약(title), 설명(description), 버전(version), 연락처(contact), 라이선스(license) 등을 설정
+    - `Swagger UI`, `ReDoc UI`, `JSON/YAML Schema` 형태로 API 문서 제공
+    - Django의 `DEBUG` 모드에서만 문서 노출
+    </aside>
+    
+- 접근 경로
+    
+    <aside>
+    ➕
+    
+    - `http://127.0.0.1:8000/swagger/` → Swagger UI (API 테스트 가능)
+    - `http://127.0.0.1:8000/redoc/` → ReDoc UI (정적인 문서 스타일)
+    - `http://127.0.0.1:8000/swagger.json` → JSON 형식 API 스키마
+    - `http://127.0.0.1:8000/swagger.yaml` → YAML 형식 API 스키마
+    </aside>
+    
+- 설계 고려 사항
+    
+    <aside>
+    ➕
+    
+    - 접근 권한 설정: `AllowAny`로 모든 사용자가 볼 수 있도록 설정 (필요 시 인증 추가 가능)
+    - API 버전 관리: `default_version`을 지정하여 여러 버전의 API 문서 제공 가능
+    - 캐시 설정: `cache_timeout=0`으로 변경 사항이 즉시 반영되도록 설정
+    </aside>
