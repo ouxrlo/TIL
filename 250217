@@ -1,0 +1,49 @@
+
+
+LangChain은 LLM을 활용한 애플리케이션을 쉽게 개발할 수 있도록 도와주는 프레임워크다. 여러 기능을 제공하며, 복잡한 AI 애플리케이션을 효율적으로 구축할 수 있다.
+
+## 1. LangChain의 핵심 개념
+
+### LLM & Chat Model
+- **LLM (Large Language Model)**: 단일 문자열을 입력하고 문자열을 출력하는 모델.
+- **Chat Model**: 대화형 AI를 위한 모델로, 리스트 형태의 메시지를 주고받으며 문맥을 유지.
+
+### 주요 컴포넌트
+1. **Prompt Template**
+   - 프롬프트를 체계적으로 관리할 수 있도록 지원.
+   - 예제:
+     ```python
+     from langchain.prompts import PromptTemplate
+     template = PromptTemplate("Tell me a joke about {topic}")
+     print(template.format(topic="AI"))
+     ```
+
+2. **Output Parser**
+   - 모델의 응답을 원하는 형식으로 변환.
+   - JSON, 리스트, 텍스트 등의 형태로 데이터 가공 가능.
+
+3. **Retrieval**
+   - LLM이 기본적으로 알지 못하는 정보를 외부에서 가져오는 기능.
+   - 벡터 검색을 활용하여 문서에서 적절한 정보를 찾아 제공.
+
+4. **Memory**
+   - 대화의 문맥을 유지하여 자연스러운 응답을 생성하도록 지원.
+   - 예제:
+     ```python
+     from langchain.memory import ConversationBufferMemory
+     memory = ConversationBufferMemory()
+     memory.save_context({"input": "Hello"}, {"output": "Hi there!"})
+     ```
+
+## 2. LangChain의 장점
+- LLM 서비스 개발 시 필요한 기능을 통합 제공.
+- API, 데이터베이스, 검색 엔진 등과 쉽게 연동 가능.
+- 프롬프트 엔지니어링, 벡터 검색, 메모리 관리 등 다양한 기능 활용 가능.
+
+## 3. 활용 사례
+- 챗봇 개발
+- 문서 요약 시스템
+- 질의응답 시스템
+- 데이터 기반 자동화 서비스
+
+LangChain을 활용하면 복잡한 AI 애플리케이션을 쉽게 구축할 수 있음 .
